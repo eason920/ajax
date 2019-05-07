@@ -14,7 +14,6 @@
 <body>
 	
 	<ul id="todo-list">
-		<ul id="eason">
 		<li>
 			<input type="checkbox" />
 			<span class="content">todo item</span>
@@ -33,7 +32,6 @@
 			<input type="text" value="todo item" />
 			<button class="btn" data-action="delete">x</button>
 		</li>
-	</ul>
 	</ul>
 	<button id="add-todo" class="btn btn-block">+</button>
 </body>
