@@ -4,7 +4,7 @@ $(function(){
 		url: '',
 		type: 'post',
 		dataType: 'json',// **定義接收資料的型別，可為 json、xml、jsonp、html，方向為 api 端向 client 端
-		data: {user_id: 12345, content: 'hellow words'}, // **寫入API的篩選參數(可選)，以物件型式多重組合 (x方向為 client 端準備要給出到 server 端的參數x)
+		data: { user_id: 12345, content: 'hellow words' }, // **方向為 client 端準備要給出到 server 端承接的參數 ; 屬性來自 API 文件(後端定義給前端)，應以物件型式多重組合送出
 		// v callback function 三個
 		complete: function(xhr, textStatus){ // 當完成 ajax 動作 / 當按下 send 鈕，就執行此 , 如 loading.gif 圖示改成 done.gif 圖示
 			// called when complete
@@ -18,8 +18,8 @@ $(function(){
 	});
 
 	// RESTful API 格式
-	//type/API url/data     / callback function ( def SUCCESS ) < 對照上方 $.ajax 方法的簡化寫法
-	$.post('url', {key_val}, function(data, textStatus, xhr){
+	// $.post(API, parameter, callbackFn(def is success), type)
+	$.post('url', parameters, function(data, textStatus, xhr){
 		// optional stuff to do after success
 	}, 'type')
 	$.get( url, parameter, callbackFn, type );
@@ -64,7 +64,7 @@ $(function(){
 	// **jsonp 由於需要許多設定，僅可用傳統的 $.ajax 方法引用
 	$.ajax({
 		url: 'https://www.flicker.com/services/rest/',
-		type: 'GET', // jsonp 僅有此，沒其它方法
+		type: 'GET', // **jsonp 僅有此，沒其它方法
 		dataType: 'jsonp', // 來源的格式
 		jsonpCallback: 'jsonFlickrApi', // **此項設定為 jsonp 為何要用 $.ajax 的原因，此值要參照 filckr 來填寫
 		data: {
